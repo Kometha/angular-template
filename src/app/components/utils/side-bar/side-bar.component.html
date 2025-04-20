@@ -1,0 +1,9 @@
+<p-tree [value]="departamentos" styleClass="w-full md:w-[20rem]" selectionMode="single">
+  <ng-template let-node pTemplate="default">
+    <div class="flex items-center w-full px-2 py-2 transition-all rounded-md cursor-pointer">
+      <!-- Icono dinámico de PrimeIcons -->
+      <i [class]="node.data?.icon" class="text-white text-base min-w-[20px] mr-2"></i>
+      <span class="text-white text-sm font-medium flex-grow">{{ node.label }}</span>
+    </div>
+  </ng-template>
+</p-tree>

@@ -1,0 +1,26 @@
+::ng-deep .p-tree-node-content > button.p-tree-node-toggle-button {
+  display: none !important;
+}
+
+::ng-deep .p-drawer-content {
+  overflow-x: hidden !important;
+}
+
+::ng-deep .p-tree {
+  width: 100% !important;
+}
+
+::ng-deep .p-tree-container,
+::ng-deep .p-tree-root,
+::ng-deep .p-tree-node,
+::ng-deep .p-tree-node-content {
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+::ng-deep .p-tree-node-label {
+  width: 100% !important;
+  overflow: hidden !important;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
