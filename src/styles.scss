@@ -10,3 +10,7 @@
   padding: 0;
   font-family: "Geist", sans-serif;
 }
+
+html, body {
+  height: 100%;         /* que el navegador complete la altura */
+}
