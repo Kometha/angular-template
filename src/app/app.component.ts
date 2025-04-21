@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { DrawerModule } from 'primeng/drawer';
-import { SideBarComponent } from './components/utils/side-bar/side-bar.component';
 import { HeaderComponent } from './components/utils/header/header.component';
 import { FooterComponent } from './components/utils/footer/footer.component';
+import { RouterOutlet } from '@angular/router';
+import { BreadcrumComponent } from './components/utils/breadcrum/breadcrum.component';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +14,24 @@ import { FooterComponent } from './components/utils/footer/footer.component';
     DrawerModule,
     HeaderComponent,
     FooterComponent,
+    RouterOutlet,
+    BreadcrumComponent,
   ],
   template: `
-    <app-header></app-header>
+    <div class="app-layout flex flex-col min-h-screen">
+      <app-header></app-header>
 
-    <app-footer></app-footer>
+      <app-breadcrumb></app-breadcrumb>
+
+      <!-- Contenedor central -->
+      <div class="flex-1">
+        <!--  ✅ -->
+        <router-outlet class="block"></router-outlet>
+        <!--  ✅ -->
+      </div>
+
+      <app-footer></app-footer>
+    </div>
   `,
 })
 export class AppComponent {
