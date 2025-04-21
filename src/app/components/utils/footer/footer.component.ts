@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   imports: [],
   standalone: true,
   styleUrl: './footer.component.scss',
-  template: `<p>footer</p>`
+  template: `<p class="text-center text-xs text-gray-500 py-4">
+    Created with ❤️ by Kometha
+  </p>`,
 })
-export class FooterComponent {
-
-}
+export class FooterComponent {}
