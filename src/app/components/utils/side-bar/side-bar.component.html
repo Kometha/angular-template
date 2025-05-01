@@ -3,12 +3,12 @@
   styleClass="w-full md:w-[20rem]"
   selectionMode="single"
 >
-  <ng-template let-node pTemplate="default">
+  <ng-template let-node let-index="index" pTemplate="default">
     <div
       class="flex items-center w-full px-2 py-2 transition-all rounded-md cursor-pointer"
+      [class.focused]="index === focusedIndex"
       (click)="navigateTo(node)"
     >
-      <!-- ? Icono dinámico de PrimeIcons -->
       <i
         [class]="node.data?.icon"
         class="text-white text-base min-w-[20px] mr-2"
