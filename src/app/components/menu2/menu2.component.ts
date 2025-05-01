@@ -53,9 +53,6 @@ import { MenuModule } from 'primeng/menu';
           <th pSortableColumn="proveedor">
             Proveedor <p-sortIcon field="proveedor"></p-sortIcon>
           </th>
-          <th pSortableColumn="dniProveedor">
-            DNI Proveedor <p-sortIcon field="dniProveedor"></p-sortIcon>
-          </th>
           <th pSortableColumn="sku">
             SKU <p-sortIcon field="sku"></p-sortIcon>
           </th>
@@ -73,8 +70,13 @@ import { MenuModule } from 'primeng/menu';
       <ng-template pTemplate="body" let-producto>
         <tr>
           <td>{{ producto.producto }}</td>
-          <td>{{ producto.proveedor }}</td>
-          <td>{{ producto.dniProveedor }}</td>
+          <td>
+            <div>
+              {{ producto.proveedor }}<br />
+              <small class="text-gray-500">{{ producto.dniProveedor }}</small>
+            </div>
+          </td>
+
           <td>{{ producto.sku }}</td>
           <td>{{ producto.categoria }}</td>
           <td>{{ producto.stock }}</td>
