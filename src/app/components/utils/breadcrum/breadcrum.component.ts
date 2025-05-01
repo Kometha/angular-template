@@ -1,68 +1,35 @@
-import { Component, inject, signal } from '@angular/core';
-import {
-  ActivatedRoute,
-  NavigationEnd,
-  Router,
-  RouterModule,
-} from '@angular/router';
-import { CommonModule } from '@angular/common';
+// src/app/core/breadcrumb.service.ts
+import { Injectable, signal, effect } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
-type Crumb = { label: string; url: string };
+export interface Crumb {
+  label: string;
+  url: string;
+}
 
-@Component({
-  selector: 'app-breadcrumb',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  template: `
-    <nav *ngIf="crumbs().length" class="bg-gray-50 px-4 py-2 text-sm border-b">
-      <ol class="flex flex-wrap items-center gap-1">
-        <li
-          *ngFor="let c of crumbs(); let last = last"
-          class="flex items-center"
-        >
-          <a
-            *ngIf="!last"
-            [routerLink]="c.url"
-            class="text-blue-600 hover:underline"
-          >
-            {{ c.label }}
-          </a>
+@Injectable({ providedIn: 'root' })
+export class BreadcrumbService {
+  readonly crumbs = signal<Crumb[]>([]);
 
-          <span *ngIf="last" class="text-gray-700 font-medium">
-            {{ c.label }}
-          </span>
-
-          <span *ngIf="!last" class="mx-1">/</span>
-        </li>
-      </ol>
-    </nav>
-  `,
-})
-export class BreadcrumComponent {
-  private router = inject(Router);
-  private route = inject(ActivatedRoute);
-
-  // 2) signal mutable en lugar de computed
-  private readonly _crumbs = signal<Crumb[]>([]);
-  crumbs = () => this._crumbs(); // getter que usa la plantilla
-
-  constructor() {
-    // recalcular en cada navegación terminada
+  constructor(private router: Router, private route: ActivatedRoute) {
+    // Recalcular en cada navegación terminada
     this.router.events
-      .pipe(filter((e) => e instanceof NavigationEnd))
-      .subscribe(
-        () => this._crumbs.set(this.build(this.route.root)) // set() ≠ update()
-      );
+      .pipe(filter(evt => evt instanceof NavigationEnd))
+      .subscribe(() => this.crumbs.set(this.build(this.route.root)));
   }
 
-  private build(route: ActivatedRoute, url = '', out: Crumb[] = []): Crumb[] {
-    const label = route.snapshot.data['breadcrumb'];
-    const path = route.snapshot.routeConfig?.path ?? '';
+  private build(route: ActivatedRoute, url: string = '', acc: Crumb[] = []): Crumb[] {
+    const data = route.snapshot.data;
+    const nextUrl = data['breadcrumb']
+      ? `${url}/${route.snapshot.url.map(u => u.path).join('/')}`
+      : url;
 
-    const nextUrl = path ? `${url}/${path}` : url;
-    if (label) out.push({ label, url: nextUrl });
+    if (data['breadcrumb']) {
+      acc.push({ label: data['breadcrumb'], url: nextUrl });
+    }
 
-    return route.firstChild ? this.build(route.firstChild, nextUrl, out) : out;
+    route.children.forEach(child => this.build(child, nextUrl, acc));
+    return acc;
   }
 }
