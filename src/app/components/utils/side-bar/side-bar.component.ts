@@ -11,13 +11,16 @@ import { Router } from '@angular/router';
   styleUrl: './side-bar.component.scss',
 })
 export class SideBarComponent {
-
   @Output() closeDrawer = new EventEmitter<void>();
 
   constructor(private router: Router) {}
 
   departamentos: TreeNode[] = [
-    { label: 'Formularios', data: { icon: 'pi pi-objects-column', routerLink: '/menu1' } },
+    { label: 'Inicio', data: { icon: 'pi pi-home', routerLink: '/inicio' } },
+    {
+      label: 'Formularios',
+      data: { icon: 'pi pi-objects-column', routerLink: '/menu1' },
+    },
     { label: 'Tabla', data: { icon: 'pi pi-table', routerLink: '/menu2' } },
     { label: 'Configuración', data: { icon: 'pi pi-cog' } },
   ];
