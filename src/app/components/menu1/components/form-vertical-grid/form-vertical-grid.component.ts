@@ -7,7 +7,8 @@ import { Select } from 'primeng/select';
   selector: 'app-form-vertical-grid',
   imports: [FormsModule, Select, InputTextModule],
   standalone: true,
-  template: `<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  template: `
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <!-- Primera fila -->
       <div class="mb-5">
         <label for="firstname" class="block text-sm mb-2">Firstname</label>
