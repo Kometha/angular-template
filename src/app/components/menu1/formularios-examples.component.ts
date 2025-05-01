@@ -124,7 +124,7 @@ export class FormulariosExamplesComponent {
     this.messageService.add({
       severity: 'success',
       summary: '¡Hecho!',
-      detail: 'Template copiado correctamente.',
+      detail: 'Código del template copiado correctamente.',
     });
   }
 }
