@@ -11,11 +11,11 @@ import { FloatLabel } from 'primeng/floatlabel';
       <p-floatlabel variant="on">
         <input
           pInputText
-          id="on_label"
+          id="nombres"
           autocomplete="off"
           class="w-full p-3 rounded-md bg-white text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
         />
-        <label for="on_label">Nombres</label>
+        <label for="nombres">Nombres</label>
       </p-floatlabel>
       <!-- <small class="text-red-500 text-xs">Este campo es obligatorio</small> -->
     </div>
@@ -24,11 +24,11 @@ import { FloatLabel } from 'primeng/floatlabel';
       <p-floatlabel variant="on">
         <input
           pInputText
-          id="on_label"
+          id="apellidos"
           autocomplete="off"
           class="w-full p-3 rounded-md bg-white text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
         />
-        <label for="on_label">Apellidos</label>
+        <label for="apellidos">Apellidos</label>
       </p-floatlabel>
       <!-- <small class="text-red-500 text-xs">Este campo es obligatorio</small> -->
     </div>
@@ -40,11 +40,11 @@ import { FloatLabel } from 'primeng/floatlabel';
           <input
             pInputText
             type="number"
-            id="on_label"
+            id="edad"
             autocomplete="off"
             class="w-full p-3 rounded-md bg-white text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
           />
-          <label for="on_label">Edad</label>
+          <label for="edad">Edad</label>
         </p-floatlabel>
         <!-- <small class="text-red-500 text-xs">Este campo es obligatorio</small> -->
       </div>
@@ -54,11 +54,11 @@ import { FloatLabel } from 'primeng/floatlabel';
           <input
             pInputText
             type="number"
-            id="on_label"
+            id="salario"
             autocomplete="off"
             class="w-full p-3 rounded-md bg-white text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
           />
-          <label for="on_label">Salario</label>
+          <label for="salario">Salario</label>
         </p-floatlabel>
         <!-- <small class="text-red-500 text-xs">Este campo es obligatorio</small> -->
       </div>
