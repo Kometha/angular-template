@@ -6,6 +6,8 @@ import { Button } from 'primeng/button';
 import { FormTemplates } from './components/utils/code-forms';
 import { Toast } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { FormHelpTextComponent } from './components/form-help-text/form-help-text.component';
+import { FormFloatLabelComponent } from './components/form-float-label/form-float-label.component';
 
 @Component({
   selector: 'app-menu1',
@@ -14,6 +16,8 @@ import { MessageService } from 'primeng/api';
     FormVerticalComponent,
     FormHorizontalComponent,
     FormVerticalGridComponent,
+    FormHelpTextComponent,
+    FormFloatLabelComponent,
     Button,
     Toast,
   ],
@@ -25,20 +29,41 @@ import { MessageService } from 'primeng/api';
       <div
         class="text-left bg-neutral-800 col-span-3 row-span-2 col-start-4 row-start-1 p-6 rounded-xl"
       >
-        <h1 class="text-2xl font-semibold mb-4">Form Horizontal</h1>
+        <div class="flex items-center justify-between mb-4">
+          <h1 class="text-2xl font-semibold">Form Horizontal</h1>
+          <p-button
+            severity="contrast"
+            icon="pi pi-copy"
+            (onClick)="copyCode('FORM_VERTICAL')"
+          ></p-button>
+        </div>
+      </div>
+      <div>
         <app-form-horizontal></app-form-horizontal>
       </div>
       <div
         class="text-left bg-neutral-800 col-span-3 row-span-2 col-start-4 row-start-3 p-6 rounded-xl"
       >
-        5
+        <div class="flex items-center justify-between mb-4">
+          <h1 class="text-2xl font-semibold">Form Float Label</h1>
+          <p-button
+            severity="contrast"
+            icon="pi pi-copy"
+            (onClick)="copyCode('FORM_VERTICAL')"
+          ></p-button>
+        </div>
+        <app-form-float-label></app-form-float-label>
       </div>
       <div
         class="text-left bg-neutral-800 col-span-3 row-span-3 col-start-1 row-start-1 p-6 rounded-xl"
       >
         <div class="flex items-center justify-between mb-4">
           <h1 class="text-2xl font-semibold">Form Vertical</h1>
-          <p-button icon="pi pi-copy" (onClick)="copyCode('FORM_VERTICAL')"></p-button>
+          <p-button
+            severity="contrast"
+            icon="pi pi-copy"
+            (onClick)="copyCode('FORM_VERTICAL')"
+          ></p-button>
         </div>
         <div>
           <app-form-vertical></app-form-vertical>
@@ -50,7 +75,11 @@ import { MessageService } from 'primeng/api';
       >
         <div class="flex items-center justify-between mb-4">
           <h1 class="text-2xl font-semibold mb-4">Form Vertical Grid</h1>
-          <p-button icon="pi pi-copy" (onClick)="copyCode('FORM_VERTICAL_GRID')"></p-button>
+          <p-button
+            severity="contrast"
+            icon="pi pi-copy"
+            (onClick)="copyCode('FORM_VERTICAL_GRID')"
+          ></p-button>
         </div>
 
         <app-form-vertical-grid></app-form-vertical-grid>
@@ -58,7 +87,15 @@ import { MessageService } from 'primeng/api';
       <div
         class="text-left bg-neutral-800 col-span-3 col-start-4 row-start-5 p-6 rounded-xl"
       >
-        8
+        <div class="flex items-center justify-between mb-4">
+          <h1 class="text-2xl font-semibold mb-4">Form Help Text</h1>
+          <p-button
+            severity="contrast"
+            icon="pi pi-copy"
+            (onClick)="copyCode('FORM_VERTICAL_GRID')"
+          ></p-button>
+        </div>
+        <app-form-help-text></app-form-help-text>
       </div>
     </div>
   `,
