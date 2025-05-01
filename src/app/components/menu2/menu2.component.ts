@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -20,6 +20,7 @@ import { MenuModule } from 'primeng/menu';
   template: `<div class="container mx-auto p-4">
     <div class="flex justify-between mb-4">
       <input
+        #searchInput
         type="text"
         pInputText
         [(ngModel)]="searchTerm"
@@ -117,7 +118,24 @@ import { MenuModule } from 'primeng/menu';
   styleUrl: './menu2.component.scss',
 })
 export class Menu2Component {
+  @ViewChild('searchInput') searchInput!: ElementRef<HTMLInputElement>;
+
+  ngAfterViewInit() {
+    this.searchInput.nativeElement.focus();
+  }
+
   constructor() {}
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (event.ctrlKey && event.key === 'Delete') {
+      event.preventDefault();
+      this.searchTerm = '';
+      this.filteredProducts = [...this.products];
+      this.searchInput.nativeElement.focus(); // volvemos a focus
+    }
+  }
+
   // Lista de productos (puedes conectar esta lista a una API o base de datos)
   products = [
     {
