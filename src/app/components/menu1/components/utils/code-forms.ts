@@ -37,7 +37,8 @@ export enum FormTemplates {
   ></p-select>
 </div>
 `,
-  FORM_VERTICAL_GRID = `<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  FORM_VERTICAL_GRID = `
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <!-- Primera fila -->
       <div class="mb-5">
         <label for="firstname" class="block text-sm mb-2">Firstname</label>
@@ -89,6 +90,114 @@ export enum FormTemplates {
         ></p-select>
       </div>
     </div> `,
+  FORM_HORIZONTAL = `
+  <div class="mb-5 flex items-center space-x-4">
+      <div class="w-1/4">
+        <label for="name" class="text-sm text-gray-400">Nombre completo:</label>
+      </div>
+      <div class="w-3/4">
+        <input
+          id="name"
+          placeholder="Keneth Moises Cubas López"
+          type="text"
+          pInputText
+          class="w-full p-3 rounded-md bg-white text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+        />
+      </div>
+    </div>
+
+    <div class="mb-5 flex items-center space-x-4">
+      <div class="w-1/4">
+        <label for="name" class="text-sm text-gray-400">Correo Electrónico:</label>
+      </div>
+      <div class="w-3/4">
+        <input
+          id="name"
+          placeholder="kometha@template.com"
+          type="email"
+          pInputText
+          class="w-full p-3 rounded-md bg-white text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+        />
+      </div>
+    </div>
+    <div class="mb-5 flex items-center space-x-4">
+      <div class="w-1/4">
+        <label for="name" class="text-sm text-gray-400">Contraseña</label>
+      </div>
+      <div class="w-3/4">
+        <input
+          id="name"
+          placeholder="•••••••••••••••••"
+          type="password"
+          pInputText
+          class="w-full p-3 rounded-md bg-white text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+        />
+      </div>
+    </div>`,
+  FORM_FLOAT_LABEL = `
+  <div class="mb-5">
+      <p-floatlabel variant="on">
+        <input
+          pInputText
+          id="on_label"
+          autocomplete="off"
+          class="w-full p-3 rounded-md bg-white text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+        />
+        <label for="on_label">Nombres</label>
+      </p-floatlabel>
+    </div>
+    <div class="mb-5">
+      <p-floatlabel variant="on">
+        <input
+          pInputText
+          id="on_label"
+          autocomplete="off"
+          class="w-full p-3 rounded-md bg-white text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+        />
+        <label for="on_label">Apellidos</label>
+      </p-floatlabel>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Primera fila -->
+      <div class="mb-5">
+        <p-floatlabel variant="on">
+          <input
+            pInputText
+            type="number"
+            id="on_label"
+            autocomplete="off"
+            class="w-full p-3 rounded-md bg-white text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+          />
+          <label for="on_label">Edad</label>
+        </p-floatlabel>
+      </div>
+      <div class="mb-5">
+        <p-floatlabel variant="on">
+          <input
+            pInputText
+            type="number"
+            id="on_label"
+            autocomplete="off"
+            class="w-full p-3 rounded-md bg-white text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+          />
+          <label for="on_label">Salario</label>
+        </p-floatlabel>
+      </div>
+    </div>`,
+  FORM_HELP_TEXT = `
+  <div class="mb-5">
+      <label for="name" class="block text-base mb-2">Usuario</label>
+      <input
+        id="name"
+        type="text"
+        pInputText
+        class="w-full p-3 rounded-md bg-white text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+      />
+      <small id="username-help" class="text-green-400"
+        >Escribe tu usuario para resetear tu contraseña.</small
+      >
+    </div>`,
 
   // Agregar los demás templates aquí
 }
