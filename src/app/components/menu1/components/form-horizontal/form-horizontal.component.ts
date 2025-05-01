@@ -10,7 +10,7 @@ import { InputTextModule } from 'primeng/inputtext';
 
     <div class="mb-5 flex items-center space-x-4">
       <div class="w-1/4">
-        <label for="name" class="text-sm text-gray-400">Nombre completo:</label>
+        <label for="name" class="text-sm">Nombre completo:</label>
       </div>
       <div class="w-3/4">
         <input
@@ -25,7 +25,7 @@ import { InputTextModule } from 'primeng/inputtext';
 
     <div class="mb-5 flex items-center space-x-4">
       <div class="w-1/4">
-        <label for="name" class="text-sm text-gray-400">Correo Electrónico:</label>
+        <label for="name" class="text-sm">Correo Electrónico:</label>
       </div>
       <div class="w-3/4">
         <input
@@ -39,7 +39,7 @@ import { InputTextModule } from 'primeng/inputtext';
     </div>
     <div class="mb-5 flex items-center space-x-4">
       <div class="w-1/4">
-        <label for="name" class="text-sm text-gray-400">Contraseña</label>
+        <label for="name" class="text-sm">Contraseña</label>
       </div>
       <div class="w-3/4">
         <input
