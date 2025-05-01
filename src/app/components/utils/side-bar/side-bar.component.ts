@@ -18,7 +18,7 @@ export class SideBarComponent {
 
   departamentos: TreeNode[] = [
     { label: 'Formularios', data: { icon: 'pi pi-objects-column', routerLink: '/menu1' } },
-    { label: 'Gerencia', data: { icon: 'pi pi-briefcase', routerLink: '/menu2' } },
+    { label: 'Tabla', data: { icon: 'pi pi-table', routerLink: '/menu2' } },
     { label: 'Configuración', data: { icon: 'pi pi-cog' } },
   ];
 
