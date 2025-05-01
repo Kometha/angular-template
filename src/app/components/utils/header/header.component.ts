@@ -18,7 +18,7 @@ import { Router } from '@angular/router';
       </div>
       <p-drawer [(visible)]="visible" header="Menú" [modal]="true">
         <div>
-          <app-side-bar></app-side-bar>
+          <app-side-bar (closeDrawer)="visible = false"></app-side-bar>
         </div>
       </p-drawer>
     </div>
