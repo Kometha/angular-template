@@ -88,12 +88,12 @@ import { MenuModule } from 'primeng/menu';
                   producto.estado === 'Stock Bajo',
                 'bg-red-200 text-red-800': producto.estado === 'Inactivo'
               }"
-              class="inline-block px-3 py-1 text-sm font-medium rounded-full"
+              class="inline-block px-3 py-1 text-sm font-medium rounded-full cursor-pointer"
             >
               {{ producto.estado }}
             </span>
           </td>
-          <td class="flex justify-center items-center space-x-2">
+          <td>
             <p-button
               icon="pi pi-ellipsis-h"
               [rounded]="true"
@@ -117,6 +117,7 @@ import { MenuModule } from 'primeng/menu';
   styleUrl: './menu2.component.scss',
 })
 export class Menu2Component {
+  constructor() {}
   // Lista de productos (puedes conectar esta lista a una API o base de datos)
   products = [
     {
