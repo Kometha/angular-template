@@ -17,8 +17,9 @@ import { FloatLabel } from 'primeng/floatlabel';
         />
         <label for="on_label">Nombres</label>
       </p-floatlabel>
-      <small class="text-red-500">Este campo es obligatorio</small>
+      <small class="text-red-500 text-xs">Este campo es obligatorio</small>
     </div>
+
     <div class="mb-5">
       <p-floatlabel variant="on">
         <input
@@ -29,7 +30,7 @@ import { FloatLabel } from 'primeng/floatlabel';
         />
         <label for="on_label">Apellidos</label>
       </p-floatlabel>
-      <small class="text-red-500">Este campo es obligatorio</small>
+      <small class="text-red-500 text-xs">Este campo es obligatorio</small>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -45,8 +46,9 @@ import { FloatLabel } from 'primeng/floatlabel';
           />
           <label for="on_label">Edad</label>
         </p-floatlabel>
-        <small class="text-red-500">Este campo es obligatorio</small>
+        <small class="text-red-500 text-xs">Este campo es obligatorio</small>
       </div>
+
       <div class="mb-5">
         <p-floatlabel variant="on">
           <input
@@ -58,8 +60,7 @@ import { FloatLabel } from 'primeng/floatlabel';
           />
           <label for="on_label">Salario</label>
         </p-floatlabel>
-      <small class="text-red-500">Este campo es obligatorio</small>
-
+        <small class="text-red-500 text-xs">Este campo es obligatorio</small>
       </div>
     </div>
   `,
