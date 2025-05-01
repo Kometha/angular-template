@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
+import { MenuModule } from 'primeng/menu';
 
 @Component({
   selector: 'app-menu2',
@@ -13,6 +14,7 @@ import { TableModule } from 'primeng/table';
     FormsModule,
     CommonModule,
     ButtonModule,
+    MenuModule,
   ],
   standalone: true,
   template: `<div class="container mx-auto p-4">
@@ -89,13 +91,22 @@ import { TableModule } from 'primeng/table';
               {{ producto.estado }}
             </span>
           </td>
-          <td class="flex justify-center">
+          <td class="flex justify-center items-center space-x-2">
             <p-button
-              icon="pi pi-ellipsis-h
-"
+              icon="pi pi-ellipsis-h"
               [rounded]="true"
               [text]="true"
-            />
+              (click)="buttonMenu.toggle($event)"
+            >
+            </p-button>
+
+            <!-- Menu desplegable -->
+            <p-menu
+              #buttonMenu
+              [model]="items"
+              [popup]="true"
+              [appendTo]="'body'"
+            ></p-menu>
           </td>
         </tr>
       </ng-template>
@@ -300,8 +311,38 @@ export class Menu2Component {
     });
   }
 
-  // Lógica para las acciones (puedes implementar lo que necesites aquí)
-  showActions(product: any) {
-    console.log('Acciones para el producto: ', product);
+  // Definir las opciones del menú
+  items = [
+    {
+      label: 'Acciones',
+      items: [
+        {
+          label: 'Ver detalles',
+          icon: 'pi pi-search',
+          command: () => this.printMessage('Ver detalles'),
+        },
+        {
+          label: 'Editar producto',
+          icon: 'pi pi-pencil',
+          command: () => this.printMessage('Editar producto'),
+        },
+        {
+          label: 'Imprimir etiqueta',
+          icon: 'pi pi-print',
+          command: () => this.printMessage('Imprimir etiqueta'),
+        },
+        {
+          label: 'Eliminar',
+          icon: 'pi pi-trash',
+          class: 'text-red-500',
+          command: () => this.printMessage('Eliminar'),
+        },
+      ],
+    },
+  ];
+
+  // Método para imprimir el mensaje en consola
+  printMessage(action: string): void {
+    console.log(`Presionaste ${action}`);
   }
 }
