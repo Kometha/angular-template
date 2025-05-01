@@ -37,14 +37,14 @@ import { FormFloatLabelComponent } from './components/form-float-label/form-floa
             (onClick)="copyCode('FORM_VERTICAL')"
           ></p-button>
         </div>
-      </div>
-      <div>
         <app-form-horizontal></app-form-horizontal>
       </div>
+
+
       <div
         class="text-left bg-neutral-800 col-span-3 row-span-2 col-start-4 row-start-3 p-6 rounded-xl"
       >
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center justify-between mb-6">
           <h1 class="text-2xl font-semibold">Form Float Label</h1>
           <p-button
             severity="contrast"
@@ -87,8 +87,8 @@ import { FormFloatLabelComponent } from './components/form-float-label/form-floa
       <div
         class="text-left bg-neutral-800 col-span-3 col-start-4 row-start-5 p-6 rounded-xl"
       >
-        <div class="flex items-center justify-between mb-4">
-          <h1 class="text-2xl font-semibold mb-4">Form Help Text</h1>
+        <div class="flex items-center justify-between mb-2">
+          <h1 class="text-2xl font-semibold mb-2">Form Help Text</h1>
           <p-button
             severity="contrast"
             icon="pi pi-copy"
