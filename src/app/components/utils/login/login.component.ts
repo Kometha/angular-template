@@ -7,10 +7,10 @@ import { InputTextModule } from 'primeng/inputtext';
   selector: 'app-login',
   imports: [InputTextModule, ButtonModule],
   template: `<div
-    class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 text-gray-200"
+    class="min-h-screen flex items-center justify-center  from-gray-900 via-gray-900 to-gray-800 text-gray-200"
   >
     <div
-      class="w-full max-w-sm p-8 space-y-6 bg-gray-900/70 backdrop-blur-md rounded-3xl shadow-2xl border border-gray-700"
+      class="w-full max-w-sm p-8 space-y-6 bg-gray-900 backdrop-blur-md rounded-3xl shadow-2xl border border-gray-700"
     >
       <h1 class="text-3xl font-semibold text-center">Bienvenido</h1>
 
