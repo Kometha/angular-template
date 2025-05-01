@@ -54,7 +54,7 @@ import { Select } from 'primeng/select';
         <p-select
           [options]="cities"
           optionLabel="name"
-          placeholder="Select a City"
+          placeholder="Seleccione una opción del Dropdown"
           class="w-full"
         ></p-select>
       </div>
