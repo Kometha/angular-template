@@ -53,6 +53,7 @@ import { FormFloatLabelComponent } from './components/form-float-label/form-floa
         </div>
         <app-form-float-label></app-form-float-label>
       </div>
+
       <div
         class="text-left bg-neutral-800 col-span-3 row-span-3 col-start-1 row-start-1 p-6 rounded-xl"
       >
