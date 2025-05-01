@@ -34,12 +34,11 @@ import { FormFloatLabelComponent } from './components/form-float-label/form-floa
           <p-button
             severity="contrast"
             icon="pi pi-copy"
-            (onClick)="copyCode('FORM_VERTICAL')"
+            (onClick)="copyCode('FORM_HORIZONTAL')"
           ></p-button>
         </div>
         <app-form-horizontal></app-form-horizontal>
       </div>
-
 
       <div
         class="text-left bg-neutral-800 col-span-3 row-span-2 col-start-4 row-start-3 p-6 rounded-xl"
@@ -49,7 +48,7 @@ import { FormFloatLabelComponent } from './components/form-float-label/form-floa
           <p-button
             severity="contrast"
             icon="pi pi-copy"
-            (onClick)="copyCode('FORM_VERTICAL')"
+            (onClick)="copyCode('FORM_FLOAT_LABEL')"
           ></p-button>
         </div>
         <app-form-float-label></app-form-float-label>
@@ -92,7 +91,7 @@ import { FormFloatLabelComponent } from './components/form-float-label/form-floa
           <p-button
             severity="contrast"
             icon="pi pi-copy"
-            (onClick)="copyCode('FORM_VERTICAL_GRID')"
+            (onClick)="copyCode('FORM_HELP_TEXT')"
           ></p-button>
         </div>
         <app-form-help-text></app-form-help-text>
@@ -104,7 +103,14 @@ import { FormFloatLabelComponent } from './components/form-float-label/form-floa
 export class Menu1Component {
   constructor(private messageService: MessageService) {}
 
-  copyCode(templateType: 'FORM_VERTICAL' | 'FORM_VERTICAL_GRID') {
+  copyCode(
+    templateType:
+      | 'FORM_VERTICAL'
+      | 'FORM_VERTICAL_GRID'
+      | 'FORM_HORIZONTAL'
+      | 'FORM_FLOAT_LABEL'
+      | 'FORM_HELP_TEXT'
+  ) {
     const template = FormTemplates[templateType];
 
     navigator.clipboard
