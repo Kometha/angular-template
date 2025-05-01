@@ -36,7 +36,7 @@ export class SideBarComponent {
     } else if (event.key === 'ArrowUp') {
       event.preventDefault();
       this.focusedIndex = (this.focusedIndex - 1 + this.departamentos.length) % this.departamentos.length;
-    } else if (event.key === 'Enter' || event.key === ' ') {
+    } else if (event.key === 'Enter') {
       event.preventDefault();
       const node = this.departamentos[this.focusedIndex];
       this.navigateTo(node);
