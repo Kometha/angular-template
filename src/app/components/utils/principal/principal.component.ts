@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
       class="mb-6 w-48 h-auto"
     />
     <p
-      class="text-sm bg-gradient-to-r from-orange-400 via-yellow-400 to-green-400 bg-clip-text text-transparent select-none cursor-default"
+      class="text-base bg-gradient-to-r from-orange-400 via-yellow-400 to-green-400 bg-clip-text text-transparent select-none cursor-default"
     >
       v0.1.2
     </p>
