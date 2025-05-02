@@ -9,8 +9,12 @@ import { Component } from '@angular/core';
       alt="Kometha Logo"
       class="mb-6 w-48 h-auto"
     />
-    <p class="text-white text-sm">v0.1.2</p>
-    <p class="text-white text-sm">
+    <p
+      class="text-sm bg-gradient-to-r from-orange-400 via-yellow-400 to-green-400 bg-clip-text text-transparent select-none cursor-default"
+    >
+      v0.1.2
+    </p>
+    <p class="text-white text-sm select-none cursor-default">
       Copyright {{ anioActual }} Kometha Technologies ©
     </p>
   </div> `,
