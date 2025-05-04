@@ -364,6 +364,6 @@ export class Menu2Component {
 
   // Método para imprimir el mensaje en consola
   printMessage(action: string): void {
-    console.log(`Presionaste ${action}`);
+    // console.log(`Presionaste ${action}`);
   }
 }

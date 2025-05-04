@@ -30,7 +30,6 @@ export class MainLayoutComponent {
 
   ngOnInit() {
     this.supabase.authChanges((event, session) => {
-      console.log({ event, session });
       this.session = session;
     });
   }
