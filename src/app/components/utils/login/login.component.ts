@@ -165,11 +165,6 @@ export class LoginComponent {
     });
   }
 
-  ingresar() {
-    // Redireccionar a la ruta /menu1
-    this.router.navigate(['inicio']);
-  }
-
   async onSubmit(): Promise<void> {
     try {
       this.loading = true;
