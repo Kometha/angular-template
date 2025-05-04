@@ -3,6 +3,7 @@ import { AuthService } from '../../../../services/auth.service';
 import { Producto } from '../../producto.interface';
 import { Categoria } from '../../categoria.interface';
 import { Proveedor } from '../../proveedor.interface';
+import { NewProducto } from '../../new-producto.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -35,5 +36,17 @@ export class ProductService {
     const { data, error } = await supabase.rpc('get_categorias_json');
     if (error) throw error;
     return data as Categoria[];
+  }
+
+  async addProducto(producto: NewProducto): Promise<string> {
+    const supabase = this.authService.supabaseClient;
+
+    const { data, error } = await supabase.rpc('add_producto', {
+      p_data: producto,
+    });
+
+    if (error) throw error;
+
+    return data as string;
   }
 }
