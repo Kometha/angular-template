@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
     <p
       class="text-base bg-gradient-to-r from-orange-400 via-yellow-400 to-green-400 bg-clip-text text-transparent select-none cursor-default"
     >
-      v0.1.2
+      v0.1.4
     </p>
     <p class="text-white text-sm select-none cursor-default">
       Copyright {{ anioActual }} Kometha Technologies ©
