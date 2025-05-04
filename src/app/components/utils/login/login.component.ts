@@ -3,11 +3,17 @@ import { Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { AuthService } from '../../../services/auth.service';
-import { FormBuilder, FormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  imports: [InputTextModule, ButtonModule, FormsModule],
+  imports: [InputTextModule, ButtonModule, FormsModule, ReactiveFormsModule],
   template: ` <!-- Contenido del body -->
     <div
       class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 text-gray-100 p-4"
@@ -59,68 +65,76 @@ import { FormBuilder, FormsModule } from '@angular/forms';
         </div>
 
         <!-- Form -->
-        <div class="space-y-6 relative">
-          <div class="space-y-4">
-            <div>
-              <label
-                class="block text-sm font-medium text-gray-300 mb-2"
-                for="email"
-                >Correo electrónico</label
-              >
-              <div class="relative group">
-                <div
-                  class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"
+        <form
+          [formGroup]="signInForm"
+          (ngSubmit)="onSubmit()"
+          class="space-y-6"
+        >
+          <div class="space-y-6 relative">
+            <div class="space-y-4">
+              <div>
+                <label
+                  class="block text-sm font-medium text-gray-300 mb-2"
+                  for="email"
+                  >Correo electrónico</label
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
+                <div class="relative group">
+                  <div
+                    class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"
                   >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    id="email"
+                    type="email"
+                    formControlName="email"
+                    placeholder="kometha@template.com"
+                    class="w-full py-3 px-10 rounded-xl bg-gray-700/50 border border-gray-600 placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition duration-300"
+                  />
                 </div>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="kometha@template.com"
-                  class="w-full py-3 px-10 rounded-xl bg-gray-700/50 border border-gray-600 placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition duration-300"
-                />
               </div>
             </div>
-          </div>
 
-          <div class="flex items-center justify-between text-sm">
-            <div class="flex items-center">
-              <input
-                id="remember-me"
-                type="checkbox"
-                class="h-4 w-4 text-emerald-500 border-gray-500 rounded focus:ring-emerald-500 bg-gray-700"
-              />
-              <label for="remember-me" class="ml-2 block text-gray-400"
-                >Recordarme</label
+            <div class="flex items-center justify-between text-sm">
+              <div class="flex items-center">
+                <input
+                  id="remember-me"
+                  type="checkbox"
+                  class="h-4 w-4 text-emerald-500 border-gray-500 rounded focus:ring-emerald-500 bg-gray-700"
+                />
+                <label for="remember-me" class="ml-2 block text-gray-400"
+                  >Recordarme</label
+                >
+              </div>
+              <a
+                href="#"
+                class="text-emerald-400 hover:text-emerald-300 font-medium transition"
+                >¿Olvidaste tu contraseña?</a
               >
             </div>
-            <a
-              href="#"
-              class="text-emerald-400 hover:text-emerald-300 font-medium transition"
-              >¿Olvidaste tu contraseña?</a
-            >
+
+            <button
+              pButton
+              [disabled]="loading"
+              [label]="loading ? 'Cargando...' : 'Ingresar'"
+              type="submit"
+              (click)="ingresar()"
+              class="cursor-pointer w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-semibold tracking-wide shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50 transform hover:-translate-y-0.5 transition duration-300 active:scale-95"
+            ></button>
           </div>
-
-          <button
-            type="button"
-            (click)="ingresar()"
-            class="cursor-pointer w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-semibold tracking-wide shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50 transform hover:-translate-y-0.5 transition duration-300 active:scale-95"
-          >
-            Ingresar
-          </button>
-        </div>
-
+        </form>
+        <!--  -->
         <!-- Footer section -->
         <div class="pt-4 text-center text-sm text-gray-400">
           <p>
@@ -138,14 +152,39 @@ import { FormBuilder, FormsModule } from '@angular/forms';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
+  loading = false;
+
+  signInForm: FormGroup;
+
   constructor(
     private readonly supabase: AuthService,
     private readonly formBuilder: FormBuilder,
     private readonly router: Router
-  ) {}
+  ) {
+    this.signInForm = this.formBuilder.group({
+      email: '',
+    });
+  }
 
   ingresar() {
     // Redireccionar a la ruta /menu1
     this.router.navigate(['inicio']);
+  }
+
+  async onSubmit(): Promise<void> {
+    try {
+      this.loading = true;
+      const email = this.signInForm.value.email as string;
+      const { error } = await this.supabase.signIn(email);
+      if (error) throw error;
+      alert('¡Verifica tu correo para continuar!');
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message);
+      }
+    } finally {
+      this.signInForm.reset();
+      this.loading = false;
+    }
   }
 }
