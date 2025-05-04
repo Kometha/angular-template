@@ -12,8 +12,6 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { MenuModule } from 'primeng/menu';
-import { ProductService } from './components/services/product.service';
-import { Producto } from './components/interfaces/producto.interface';
 import { NewProducto } from './components/interfaces/new-producto.interface';
 import { Toast } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
