@@ -12,8 +12,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { MenuModule } from 'primeng/menu';
 import { ProductService } from './components/services/product.service';
-import { Producto } from './producto.interface';
-import { NewProducto } from './new-producto.interface';
+import { Producto } from './components/interfaces/producto.interface';
+import { NewProducto } from './components/interfaces/new-producto.interface';
 import { Toast } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 
@@ -173,6 +173,7 @@ export class Menu2Component implements OnInit {
 
   async loadProducts() {
     try {
+      // Cargar los productos desde el servicio
       this.products = await this.productService.getProducts();
       this.filteredProducts = [...this.products];
     } catch (error) {
@@ -181,6 +182,7 @@ export class Menu2Component implements OnInit {
   }
 
   searchTerm: string = '';
+  // Lista de productos filtrados
   filteredProducts = [...this.products];
 
   // Filtrar la tabla según el texto de búsqueda
@@ -231,7 +233,7 @@ export class Menu2Component implements OnInit {
     const nuevoProducto: NewProducto = {
       nombreProducto: 'EJEMPLO NADA MÁS',
       proveedorId: 1,
-      sku: 'EXAMPLE-KOMETHA',
+      sku: 'EXAMPLE-KOMETHA2',
       categoriaId: 2,
       stock: 50,
       estado: 'Stock Bajo',
