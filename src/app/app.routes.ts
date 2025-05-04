@@ -4,12 +4,14 @@ import { Menu2Component } from './components/menu2/menu2.component';
 import { LoginComponent } from './components/utils/login/login.component';
 import { MainLayoutComponent } from './components/utils/main-layout/main-layout.component';
 import { PrincipalComponent } from './components/utils/principal/principal.component';
-
+import { AuthGuard } from './auth.guard';
+import { AccountComponent } from './account/account.component';
 
 export const APP_ROUTES: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'inicio', component: PrincipalComponent },
       { path: 'menu1', component: FormulariosExamplesComponent },
@@ -17,5 +19,6 @@ export const APP_ROUTES: Routes = [
     ],
   },
   { path: 'login', component: LoginComponent },
+  { path: 'account', component: AccountComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
