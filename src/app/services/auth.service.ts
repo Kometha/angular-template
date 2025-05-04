@@ -9,26 +9,41 @@ import {
 } from '@supabase/supabase-js';
 import { environment } from '../../environments/environment';
 import { Profile } from '../models/profile';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private supabase!: SupabaseClient;
-  _session: AuthSession | null = null;
+  private sessionSubject = new BehaviorSubject<Session | null | undefined>(
+    undefined
+  );
+
+  session$: Observable<Session | null | undefined> =
+    this.sessionSubject.asObservable();
 
   constructor() {
     this.supabase = createClient(
       environment.supabaseUrl,
       environment.supabaseKey
     );
+
+    this.loadSession();
+
+    // Mantén sesión actualizada en tiempo real
+    this.supabase.auth.onAuthStateChange((_, session) => {
+      this.sessionSubject.next(session);
+    });
   }
 
-  get session() {
-    this.supabase.auth.getSession().then(({ data, error }) => {
-      this._session = data.session;
-    });
-    return this._session;
+  private async loadSession() {
+    const { data } = await this.supabase.auth.getSession();
+    this.sessionSubject.next(data.session);
+  }
+
+  get session(): Session | null | undefined {
+    return this.sessionSubject.value;
   }
 
   async profile(user: User) {
