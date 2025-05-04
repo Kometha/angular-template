@@ -10,11 +10,21 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { Toast } from 'primeng/toast';
 
 @Component({
   selector: 'app-login',
-  imports: [InputTextModule, ButtonModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    InputTextModule,
+    ButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    Toast,
+  ],
+  providers: [MessageService],
   template: ` <!-- Contenido del body -->
+    <p-toast />
     <div
       class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 text-gray-100 p-4"
     >
@@ -158,10 +168,20 @@ export class LoginComponent {
   constructor(
     private readonly supabase: AuthService,
     private readonly formBuilder: FormBuilder,
-    private readonly router: Router
+    private readonly router: Router,
+    private messageService: MessageService
   ) {
     this.signInForm = this.formBuilder.group({
       email: '',
+    });
+  }
+
+  // TODO: Cambiar a un servicio de notificaciones
+  showSuccess() {
+    this.messageService.add({
+      severity: 'success',
+      summary: '¡Hecho!',
+      detail: 'Verifica tu correo para continuar',
     });
   }
 
@@ -171,7 +191,7 @@ export class LoginComponent {
       const email = this.signInForm.value.email as string;
       const { error } = await this.supabase.signIn(email);
       if (error) throw error;
-      alert('¡Verifica tu correo para continuar!');
+      this.showSuccess();
     } catch (error) {
       if (error instanceof Error) {
         alert(error.message);
