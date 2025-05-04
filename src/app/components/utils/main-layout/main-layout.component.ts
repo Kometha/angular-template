@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
+import { AuthService } from '../../../services/auth.service';
+import { Session } from '@supabase/auth-js';
 
 @Component({
   selector: 'app-main-layout',
@@ -18,4 +20,17 @@ import { HeaderComponent } from '../header/header.component';
     </div>
   `,
 })
-export class MainLayoutComponent {}
+export class MainLayoutComponent {
+  session: Session | null = null;
+
+  constructor(private readonly supabase: AuthService) {
+    this.session = supabase.session;
+  }
+
+  ngOnInit() {
+    this.supabase.authChanges((event, session) => {
+      console.log({ event, session });
+      this.session = session;
+    });
+  }
+}
