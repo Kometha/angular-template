@@ -50,6 +50,8 @@ export class HeaderComponent {
   @HostListener('window:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if (event.ctrlKey && event.key.toLowerCase() === 'b') {
+      console.log('Ctrl + B pressed');
+      console.log(this.visible);
       event.preventDefault();
       this.visible = !this.visible;
     }
