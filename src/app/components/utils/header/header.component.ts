@@ -5,6 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { Router } from '@angular/router';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -41,10 +42,21 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 export class HeaderComponent {
   visible = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private readonly authService: AuthService
+  ) {}
 
-  logout() {
-    this.router.navigate(['/login']);
+  async logout() {
+    // 1) Llamar a Supabase para destruir la sesión
+    const { error } = await this.authService.signOut();
+    if (error) {
+      console.error('Error cerrando sesión:', error);
+      return;
+    }
+
+    // 2) Sólo después, navegar a /login
+    await this.router.navigate(['/login']);
   }
 
   @HostListener('window:keydown', ['$event'])
