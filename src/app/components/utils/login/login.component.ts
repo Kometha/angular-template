@@ -129,7 +129,6 @@ import {
               [disabled]="loading"
               [label]="loading ? 'Cargando...' : 'Ingresar'"
               type="submit"
-              (click)="ingresar()"
               class="cursor-pointer w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-semibold tracking-wide shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50 transform hover:-translate-y-0.5 transition duration-300 active:scale-95"
             ></button>
           </div>
