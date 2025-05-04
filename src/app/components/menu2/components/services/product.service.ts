@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '../../../../services/auth.service';
-import { Producto } from '../../producto.interface';
-import { Categoria } from '../../categoria.interface';
-import { Proveedor } from '../../proveedor.interface';
-import { NewProducto } from '../../new-producto.interface';
+import { Producto } from '../interfaces/producto.interface';
+import { Categoria } from '../interfaces/categoria.interface';
+import { Proveedor } from '../interfaces/proveedor.interface';
+import { NewProducto } from '../interfaces/new-producto.interface';
 
 @Injectable({
   providedIn: 'root',
