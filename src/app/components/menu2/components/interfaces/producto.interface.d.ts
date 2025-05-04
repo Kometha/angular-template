@@ -6,5 +6,6 @@ export interface Producto {
   sku: string;
   categoria: Categoria;
   stock: number;
+  horaCreado: string;
   estado: Estado;
 }
