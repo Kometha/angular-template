@@ -37,6 +37,10 @@ export class AuthService {
     });
   }
 
+  get supabaseClient(): SupabaseClient {
+    return this.supabase;
+  }
+
   private async loadSession() {
     const { data } = await this.supabase.auth.getSession();
     this.sessionSubject.next(data.session);
