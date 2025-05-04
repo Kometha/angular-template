@@ -16,9 +16,10 @@ export const APP_ROUTES: Routes = [
       { path: 'inicio', component: PrincipalComponent },
       { path: 'menu1', component: FormulariosExamplesComponent },
       { path: 'menu2', component: Menu2Component },
+      { path: '', redirectTo: 'inicio', pathMatch: 'full' },
     ],
   },
   { path: 'login', component: LoginComponent },
   { path: 'account', component: AccountComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' }, // Ruta fallback
 ];
