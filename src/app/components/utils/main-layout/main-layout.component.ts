@@ -24,7 +24,8 @@ export class MainLayoutComponent {
   session: Session | null = null;
 
   constructor(private readonly supabase: AuthService) {
-    this.session = supabase.session;
+    const currentSession = supabase.session;
+    this.session = currentSession !== undefined ? currentSession : null;
   }
 
   ngOnInit() {
