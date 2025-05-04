@@ -20,6 +20,7 @@
     "@angular/router": "^19.2.7",
     "@primeng/themes": "^19.1.0",
     "@supabase/auth-js": "^2.69.1",
+    "@supabase/supabase-js": "^2.49.4",
     "primeicons": "^7.0.0",
     "primeng": "^19.1.0",
     "rxjs": "^7.8.2",
