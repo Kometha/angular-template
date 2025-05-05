@@ -42,6 +42,7 @@ export class ProductService {
 
   async getProveedores(): Promise<Proveedor[]> {
     const supabase = this.authService.supabaseClient;
+
     const { data, error } = await supabase.rpc('get_proveedores_json');
     if (error) throw error;
     return data as Proveedor[];
@@ -49,6 +50,7 @@ export class ProductService {
 
   async getCategorias(): Promise<Categoria[]> {
     const supabase = this.authService.supabaseClient;
+
     const { data, error } = await supabase.rpc('get_categorias_json');
     if (error) throw error;
     return data as Categoria[];
@@ -62,7 +64,6 @@ export class ProductService {
 
     if (error) throw error;
 
-    // Ahora `data` es directamente un objeto JSON con forma de `Producto`
     return data as Producto;
   }
 
