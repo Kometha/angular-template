@@ -24,6 +24,22 @@ export class ProductService {
     return data;
   }
 
+  async getNewProducts(fecha: string): Promise<Producto[]> {
+    const supabase = this.authService.supabaseClient;
+
+    const { data, error } = await supabase.rpc('get_productos_nuevos_json', {
+      p_fecha: fecha,
+    });
+
+    if (error) {
+      console.error('Error al llamar RPC:', error);
+      throw error;
+    }
+
+    return data;
+  }
+
+
   async getProveedores(): Promise<Proveedor[]> {
     const supabase = this.authService.supabaseClient;
     const { data, error } = await supabase.rpc('get_proveedores_json');
