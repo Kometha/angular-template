@@ -16,6 +16,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class AuthService {
   private supabase!: SupabaseClient;
+
   private sessionSubject = new BehaviorSubject<Session | null | undefined>(
     undefined
   );
