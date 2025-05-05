@@ -54,6 +54,7 @@ export class ProductService {
 
     const { data, error } = await supabase.rpc('get_categorias_json');
     if (error) throw error;
+
     return data as Categoria[];
   }
 
