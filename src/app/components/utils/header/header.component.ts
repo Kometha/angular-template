@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { DrawerModule } from 'primeng/drawer';
 import { SideBarComponent } from '../side-bar/side-bar.component';
 import { ButtonModule } from 'primeng/button';
@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { AuthService } from '../../../services/auth.service';
+import { ProductoStore } from '../../menu2/product.store';
 
 @Component({
   selector: 'app-header',
@@ -40,6 +41,8 @@ import { AuthService } from '../../../services/auth.service';
   `,
 })
 export class HeaderComponent {
+  store = inject(ProductoStore);
+
   visible = false;
 
   constructor(
@@ -55,7 +58,10 @@ export class HeaderComponent {
       return;
     }
 
-    // 2) Sólo después, navegar a /login
+    // 2) Limpiar el estado de la aplicación (si es necesario)
+    localStorage.removeItem('productos_cache');
+
+    // 3) Sólo después, navegar a /login
     await this.router.navigate(['/login']);
   }
 
