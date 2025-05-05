@@ -8,4 +8,5 @@ export interface Producto {
   stock: number;
   horaCreado: string;
   estado: Estado;
+  created_at: string;
 }
