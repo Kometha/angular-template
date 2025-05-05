@@ -50,6 +50,13 @@ import { ProductoStore } from './product.store';
           label="Agregar"
           class="bg-blue-500 hover:bg-blue-600 text-white rounded-md shadow-sm"
         ></p-button>
+
+        <p-button
+          icon="pi pi-refresh"
+          (onClick)="store.loadProducts()"
+          label="Actualizar"
+          class="bg-gray-500 hover:bg-gray-600 text-white rounded-md shadow-sm"
+        ></p-button>
       </div>
 
       <p-table
@@ -172,7 +179,7 @@ export class Menu2Component implements OnInit {
     const nuevoProducto: NewProducto = {
       nombreProducto: 'EJEMPLO NADA MÁS',
       proveedorId: 1,
-      sku: 'EXAMPLE-KOMETHA1002',
+      sku: 'EXAMPLE-KOMETHA999',
       categoriaId: 2,
       stock: 50,
       estado: 'Stock Bajo',
