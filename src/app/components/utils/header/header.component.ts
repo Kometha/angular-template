@@ -67,6 +67,11 @@ export class HeaderComponent {
           icon: 'pi pi-sign-out',
           command: () => this.logout(),
         },
+        {
+          label: 'Configuración',
+          icon: 'pi pi-cog',
+          command: () => this.router.navigate(['/profile-settings']),
+        },
       ],
     },
   ];
