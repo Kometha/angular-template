@@ -179,7 +179,7 @@ export class Menu2Component implements OnInit {
     const nuevoProducto: NewProducto = {
       nombreProducto: 'EJEMPLO NADA MÁS',
       proveedorId: 1,
-      sku: 'EXAMPLE-KOMETHA999',
+      sku: 'EXAMPLE-KOMETHA19099',
       categoriaId: 2,
       stock: 50,
       estado: 'Stock Bajo',
