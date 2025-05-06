@@ -68,8 +68,12 @@ import { Toast } from 'primeng/toast';
               />
             </svg>
           </div>
-          <h1 class="text-3xl font-bold text-white">Bienvenido</h1>
-          <p class="text-gray-400 text-sm">
+          <h1
+            class="text-3xl font-bold tracking-wider text-white drop-shadow-lg"
+          >
+            Bienvenido
+          </h1>
+          <p class="text-gray-300 text-sm">
             Ingresa tus credenciales para continuar
           </p>
         </div>
