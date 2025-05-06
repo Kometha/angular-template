@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { CardModule } from 'primeng/card';
 
 @Component({
   selector: 'app-profile-settings',
-  imports: [],
+  imports: [CardModule],
   standalone: true,
   template: `
     <!-- configuracion-perfil.component.html -->
@@ -11,6 +12,13 @@ import { Component } from '@angular/core';
         <h1 class="text-3xl font-semibold text-white mb-4">
           Configuración de Perfil
         </h1>
+
+        <p-card header="Información Personal" class="mt-4">
+          <p class="m-0">
+            Actualiza tu información personal y cómo otros te ven en la
+            plataforma.
+          </p>
+        </p-card>
       </div>
     </div>
   `,
