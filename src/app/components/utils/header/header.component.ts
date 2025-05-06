@@ -7,6 +7,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { AuthService } from '../../../services/auth.service';
 import { ProductoStore } from '../../menu2/product.store';
+import { MenuModule } from 'primeng/menu';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,7 @@ import { ProductoStore } from '../../menu2/product.store';
     SideBarComponent,
     AvatarModule,
     AvatarGroupModule,
+    MenuModule,
   ],
   standalone: true,
   styleUrl: './header.component.scss',
@@ -25,12 +27,19 @@ import { ProductoStore } from '../../menu2/product.store';
         <p-button (click)="visible = true" icon="pi pi-bars"></p-button>
         <div class="flex-grow"></div>
         <p-avatar
+          (click)="buttonMenu.toggle($event)"
           icon="pi pi-user"
           class="mr-2 cursor-pointer"
           size="large"
           shape="circle"
         />
-        <p-button (click)="logout()" icon="pi pi-sign-out"></p-button>
+        <!-- Menu desplegable -->
+        <p-menu
+          #buttonMenu
+          [model]="items"
+          [popup]="true"
+          [appendTo]="'body'"
+        ></p-menu>
       </div>
       <p-drawer [(visible)]="visible" header="Menú" [modal]="true">
         <div>
@@ -49,6 +58,18 @@ export class HeaderComponent {
     private router: Router,
     private readonly authService: AuthService
   ) {}
+
+  items = [
+    {
+      items: [
+        {
+          label: 'Cerrar sesión',
+          icon: 'pi pi-sign-out',
+          command: () => this.logout(),
+        },
+      ],
+    },
+  ];
 
   async logout() {
     // 1) Llamar a Supabase para destruir la sesión
