@@ -6,6 +6,7 @@ import { MainLayoutComponent } from './components/utils/main-layout/main-layout.
 import { PrincipalComponent } from './components/utils/principal/principal.component';
 import { AuthGuard } from './auth.guard';
 import { AccountComponent } from './account/account.component';
+import { ProfileSettingsComponent } from './components/profile-settings/profile-settings.component';
 
 export const APP_ROUTES: Routes = [
   {
@@ -16,6 +17,7 @@ export const APP_ROUTES: Routes = [
       { path: 'inicio', component: PrincipalComponent },
       { path: 'menu1', component: FormulariosExamplesComponent },
       { path: 'menu2', component: Menu2Component },
+      { path: 'profile-settings', component: ProfileSettingsComponent },
       { path: '', redirectTo: 'inicio', pathMatch: 'full' },
     ],
   },
