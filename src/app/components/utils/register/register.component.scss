@@ -1,0 +1,94 @@
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+// Aplicar la animación al fondo
+.min-h-screen {
+  background-size: 400% 400%;
+  animation: gradientAnimation 20s ease infinite;
+}
+
+.blur-3xl,
+.blur-2xl {
+  mix-blend-mode: screen;
+  opacity: 0.8;
+}
+
+.group:focus-within svg {
+  color: #10b981; /* emerald-500 */
+}
+
+// Mejorar transiciones para los elementos interactivos
+input,
+button,
+a {
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// Efecto de elevación para el botón
+button {
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: skewX(-25deg);
+    transition: left 0.5s ease;
+  }
+
+  &:hover::before {
+    left: 125%;
+  }
+}
+
+// Mejorar efectos visuales de los inputs en focus
+input {
+  &:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+  }
+}
+
+// Efectos para los enlaces
+a {
+  &:hover {
+    color: #34d399;
+    text-decoration: none;
+  }
+}
+
+// Personalización del checkbox
+input[type="checkbox"] {
+  &:checked {
+    background-color: #10b981;
+    border-color: #10b981;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+  }
+}
