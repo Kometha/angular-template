@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -7,14 +13,16 @@ import { Toast } from 'primeng/toast';
 
 @Component({
   selector: 'app-register',
-  imports: [    InputTextModule,
+  imports: [
+    InputTextModule,
     ButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    Toast],
+    Toast,
+  ],
   providers: [MessageService],
   template: `
-  <p-toast />
+    <p-toast />
     <div
       class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 text-gray-100 p-4"
     >
@@ -276,8 +284,8 @@ import { Toast } from 'primeng/toast';
           <p>
             ¿Ya tienes una cuenta?
             <a
-              href="#"
-              class="text-emerald-400 hover:text-emerald-300 font-medium transition"
+              (click)="goToLogin()"
+              class="cursor-pointer text-emerald-400 hover:text-emerald-300 font-medium transition"
               >Inicia sesión aquí</a
             >
           </p>
@@ -293,7 +301,8 @@ export class RegisterComponent {
 
   constructor(
     private readonly formBuilder: FormBuilder,
-    private readonly messageService: MessageService
+    private readonly messageService: MessageService,
+    private readonly router: Router
   ) {
     this.registerForm = this.formBuilder.group({
       firstName: '',
@@ -306,5 +315,9 @@ export class RegisterComponent {
 
   async onSubmit(): Promise<void> {
     this.loading = true;
+  }
+
+  goToLogin() {
+    this.router.navigate(['/login']);
   }
 }
