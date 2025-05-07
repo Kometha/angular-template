@@ -211,6 +211,7 @@ export class LoginComponent {
   ) {
     this.signInForm = this.formBuilder.group({
       email: '',
+      password: '',
     });
   }
 
@@ -227,7 +228,8 @@ export class LoginComponent {
     try {
       this.loading = true;
       const email = this.signInForm.value.email as string;
-      const { error } = await this.supabase.signIn(email);
+      const password = this.signInForm.value.password as string;
+      const { error } = await this.supabase.logIn(email, password);
       if (error) throw error;
       this.showSuccess();
     } catch (error) {
