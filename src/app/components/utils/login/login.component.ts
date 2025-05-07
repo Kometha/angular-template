@@ -187,8 +187,8 @@ import { Toast } from 'primeng/toast';
           <p>
             ¿No tienes una cuenta?
             <a
-              href="#"
-              class="text-emerald-400 hover:text-emerald-300 font-medium transition"
+              routerLink="/register"
+              class="cursor-pointer text-emerald-400 hover:text-emerald-300 font-medium transition"
               >Regístrate aquí</a
             >
           </p>
