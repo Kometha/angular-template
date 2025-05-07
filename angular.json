@@ -22,9 +22,6 @@
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "customWebpackConfig": {
-              "path": "webpack.config.js"
-            },
             "inlineStyleLanguage": "scss",
             "assets": [
               {
