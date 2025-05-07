@@ -187,7 +187,7 @@ import { Toast } from 'primeng/toast';
           <p>
             ¿No tienes una cuenta?
             <a
-              routerLink="/register"
+              (click)="goToRegister()"
               class="cursor-pointer text-emerald-400 hover:text-emerald-300 font-medium transition"
               >Regístrate aquí</a
             >
@@ -213,6 +213,10 @@ export class LoginComponent {
       email: '',
       password: '',
     });
+  }
+
+  goToRegister() {
+    this.router.navigate(['/register']);
   }
 
   // TODO: Cambiar a un servicio de notificaciones
