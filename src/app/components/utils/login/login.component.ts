@@ -12,6 +12,7 @@ import {
 } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { Toast } from 'primeng/toast';
+import { AlertMessageService } from '../../../services/alert-message.service';
 
 @Component({
   selector: 'app-login',
@@ -207,7 +208,7 @@ export class LoginComponent {
     private readonly supabase: AuthService,
     private readonly formBuilder: FormBuilder,
     private readonly router: Router,
-    private messageService: MessageService
+    private readonly alertMessageService: AlertMessageService
   ) {
     this.signInForm = this.formBuilder.group({
       email: '',
@@ -219,15 +220,6 @@ export class LoginComponent {
     this.router.navigate(['/register']);
   }
 
-  // TODO: Cambiar a un servicio de notificaciones
-  showSuccess() {
-    this.messageService.add({
-      severity: 'success',
-      summary: '¡Hecho!',
-      detail: 'Verifica tu correo para continuar',
-    });
-  }
-
   async onSubmit(): Promise<void> {
     try {
       this.loading = true;
@@ -235,9 +227,13 @@ export class LoginComponent {
       const password = this.signInForm.value.password as string;
       const { error } = await this.supabase.logIn(email, password);
       if (error) throw error;
-      this.showSuccess();
+
+      this.alertMessageService.success('Verifica tu correo para continuar');
+
     } catch (error) {
+
       if (error instanceof Error) {
+
         alert(error.message);
       }
     } finally {
