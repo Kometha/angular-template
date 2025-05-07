@@ -220,24 +220,33 @@ export class LoginComponent {
     this.router.navigate(['/register']);
   }
 
+  // Maneja la lógica completa de envío del formulario de inicio de sesión.
   async onSubmit(): Promise<void> {
+    // Activamos el estado de carga para bloquear la UI durante la petición.
+    this.loading = true;
+
     try {
-      this.loading = true;
-      const email = this.signInForm.value.email as string;
-      const password = this.signInForm.value.password as string;
-      const { error } = await this.supabase.logIn(email, password);
+      const { email, password } = this.signInForm.value;
+
+      // Realizamos el intento de login con el servicio Supabase.
+      const { error } = await this.supabase.logIn(
+        email as string,
+        password as string
+      );
+
       if (error) throw error;
 
-      this.alertMessageService.success('Verifica tu correo para continuar');
-
+      this.alertMessageService.success('¡Inicio de sesión exitoso!');
     } catch (error) {
-
+      // Si el error es de tipo estándar (Error object), mostramos su mensaje.
       if (error instanceof Error) {
-
-        alert(error.message);
+        console.error('Error de login:', error.message);
+        this.alertMessageService.error(error.message);
       }
     } finally {
+      // Reseteamos el formulario para limpiar los datos del usuario.
       this.signInForm.reset();
+
       this.loading = false;
     }
   }
