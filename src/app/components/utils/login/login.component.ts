@@ -119,6 +119,40 @@ import { Toast } from 'primeng/toast';
                 </div>
               </div>
             </div>
+            <div class="space-y-4">
+              <div>
+                <label
+                  class="block text-sm font-medium text-gray-300 mb-2"
+                  for="password"
+                  >Contraseña</label
+                >
+                <div class="relative group">
+                  <div
+                    class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M12 2a4 4 0 00-4 4v4H7a2 2 0 00-2 2v8a2 2 0 002 2h10a2 2 0 002-2v-8a2 2 0 00-2-2h-1V6a4 4 0 00-4-4zm-2 8V6a2 2 0 114 0v4h-4zm2 4a2 2 0 100 4 2 2 0 000-4z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    id="password"
+                    type="password"
+                    formControlName="password"
+                    placeholder="••••••••"
+                    class="w-full py-3 px-10 rounded-xl bg-gray-700/50 border border-gray-600 placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition duration-300"
+                  />
+                </div>
+              </div>
+            </div>
 
             <div class="flex items-center justify-between text-sm">
               <div class="flex items-center">
