@@ -7,6 +7,7 @@ import { PrincipalComponent } from './components/utils/principal/principal.compo
 import { AuthGuard } from './auth.guard';
 import { AccountComponent } from './account/account.component';
 import { ProfileSettingsComponent } from './components/profile-settings/profile-settings.component';
+import { RegisterComponent } from './components/utils/register/register.component';
 
 export const APP_ROUTES: Routes = [
   {
@@ -22,6 +23,7 @@ export const APP_ROUTES: Routes = [
     ],
   },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'account', component: AccountComponent },
   { path: '**', redirectTo: '/login' }, // Ruta fallback
 ];
