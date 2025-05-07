@@ -10,6 +10,7 @@ import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { Toast } from 'primeng/toast';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -300,6 +301,7 @@ export class RegisterComponent {
   loading = false;
 
   constructor(
+    private readonly supabase: AuthService,
     private readonly formBuilder: FormBuilder,
     private readonly messageService: MessageService,
     private readonly router: Router
@@ -315,6 +317,11 @@ export class RegisterComponent {
 
   async onSubmit(): Promise<void> {
     this.loading = true;
+    const { firstName, lastName, username, email, password } =
+      this.registerForm.value;
+
+
+
   }
 
   goToLogin() {
