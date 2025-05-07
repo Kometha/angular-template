@@ -10,9 +10,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MessageService } from 'primeng/api';
 import { Toast } from 'primeng/toast';
 import { AlertMessageService } from '../../../services/alert-message.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +23,7 @@ import { AlertMessageService } from '../../../services/alert-message.service';
     ReactiveFormsModule,
     Toast,
   ],
-  providers: [MessageService],
+  providers: [AlertMessageService, MessageService],
   template: ` <!-- Contenido del body -->
     <p-toast />
     <div
