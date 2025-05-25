@@ -17,18 +17,12 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AuthService {
   private supabase!: SupabaseClient;
 
-  private sessionSubject = new BehaviorSubject<Session | null | undefined>(
-    undefined
-  );
+  private sessionSubject = new BehaviorSubject<Session | null | undefined>(undefined);
 
-  session$: Observable<Session | null | undefined> =
-    this.sessionSubject.asObservable();
+  session$: Observable<Session | null | undefined> = this.sessionSubject.asObservable();
 
   constructor() {
-    this.supabase = createClient(
-      environment.supabaseUrl,
-      environment.supabaseKey
-    );
+    this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
 
     this.loadSession();
 
@@ -64,9 +58,7 @@ export class AuthService {
     return data;
   }
 
-  authChanges(
-    callback: (event: AuthChangeEvent, session: Session | null) => void
-  ) {
+  authChanges(callback: (event: AuthChangeEvent, session: Session | null) => void) {
     return this.supabase.auth.onAuthStateChange(callback);
   }
 
